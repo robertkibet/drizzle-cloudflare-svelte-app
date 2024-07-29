@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts --remote",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "wrangler d1 migrations apply DB",
+    "db:studio": "drizzle-kit migrate && drizzle-kit studio --config=drizzle.config.ts",
+    "db:create": "wrangler d1 create",
+    "db:delete": "wrangler d1 delete"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.32.0",
+    "hono": "^4.5.1",
+    "superstruct": "^2.0.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "drizzle-kit": "^0.23.0",
+    "wrangler": "^3.65.1"
+  }
+}
